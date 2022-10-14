@@ -15,12 +15,10 @@ public class ContactList {
         Path dataDirectory = Paths.get(directory);
         Path dataFile = Paths.get(filename);
 
-        System.out.println(dataFile);
-        System.out.println(dataDirectory);
 
 
         List<String> contactList = Arrays.asList("John","Jacob","JingleHeinerSchmidt");
-        Path filepath = Paths.get(filename,directory);
+        Path filepath = Paths.get(filename);
         Files.write(filepath, contactList);
 
 
