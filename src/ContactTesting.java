@@ -99,6 +99,20 @@ public class ContactTesting {
                 case 3:
                     //search contact by name
 
+                    List<String> contacts15 = Files.readAllLines(Paths.get("data", "contacts.txt"));
+                    List<String> newContactList5 = new ArrayList<>();
+                    System.out.println("enter a name to search for");
+
+                    String userInput59 = s1.nextLine();
+
+                    for (String contact : contacts15) {
+                            if(contact.toLowerCase().contains(userInput59.toLowerCase())) {
+                                System.out.printf("First  | Last  | Phone Number%n"+contact+"%n");
+                            }
+
+
+                    }
+
                 case 4:
 //                    System.out.println("Would you like to delete a contact? enter y if yes");
 //                    System.out.println("Enter the name of the contact to delete: ");
@@ -117,7 +131,7 @@ public class ContactTesting {
 
             }
         } while (option != 0);
-        System.out.println(contactList);
+
     }
 }
 
