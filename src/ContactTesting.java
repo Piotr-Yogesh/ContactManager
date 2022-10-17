@@ -134,22 +134,22 @@ public class ContactTesting {
                     System.out.println(contactsRemove);
                     System.out.println("Enter contact name to search:");
                     String userInputSearchToRemove = s1.nextLine();
-                    for (String contact : contactsRemove) {
-                        if (contact.toLowerCase().contains(userInputSearchToRemove.toLowerCase())) {
-                            System.out.printf("First  | Last  | Phone Number%n" + contact + "%n");
+
+                    for (int i=0;i< contactsRemove.size();i++) {
+                        if (contactsRemove.get(i).toLowerCase().contains(userInputSearchToRemove.toLowerCase())) {
+                            System.out.printf("First  | Last  | Phone Number%n" + contactsRemove.get(i) + "%n");
 
                             System.out.println("Is this a contact you want to delete?");
                             String userInputRemove = s1.nextLine();
 
                             if (userInputRemove.contains("y")){
-                                contactsRemove.remove(contact);
+                                contactsRemove.remove(i);
                                 System.out.println(contactsRemove);
-//                            System.out.printf("First  | Last  | Phone Number%n"+contact+"%n");
+                                Files.write(filepath, contactsRemove);
                             }
                         }
-
-
                         }
+
 
 
 
@@ -161,12 +161,8 @@ public class ContactTesting {
 //                        System.out.println("program has ended, goodbye");
 //                    }
                 case 5:
-//                    System.out.println("are you sure you want to exit? enter y if yes");
-//                    String userInput = s1.nextLine();
-//                    if (userInput.contains("y")) {
-//                        option = 0;
-//                        System.out.println("program has ended, have a nice day!!");
-//                    }
+                    System.out.println("have a nice day!!");
+                    option = 0;
 
 
             }
