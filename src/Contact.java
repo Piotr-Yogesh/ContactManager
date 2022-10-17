@@ -1,13 +1,19 @@
+import java.util.ArrayList;
+
 public class Contact {
 
     private String firstName;
     private String lastName;
-    private Integer phoneNumber;
+    private ArrayList<Integer> phoneNumber;
 
-    Contact(String firstName, String lastName, Integer phoneNumber){
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
+    public Contact(String newFirstName,String newLastName, String newPhoneNumber){
+        this(newFirstName, newLastName, new ArrayList<Integer>());
+    }
+
+    public Contact(String newfirstName, String newlastName, ArrayList<Integer> newPhoneNumber){
+        this.firstName = newfirstName;
+        this.lastName = newlastName;
+        this.phoneNumber = newPhoneNumber;
     }
     public String getFirstName(){
         return firstName;
@@ -17,8 +23,12 @@ public class Contact {
         return lastName;
     }
 
-    public Integer getPhoneNumber(){
+    public ArrayList<Integer> getPhoneNumber(){
         return phoneNumber;
+    }
+
+    public  void addPhoneNumber(int phoNumber){
+        phoneNumber.add(phoNumber);
     }
 
     public String contactInfo(){

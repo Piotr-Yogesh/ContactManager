@@ -26,11 +26,14 @@ public class ContactTesting {
         Path filepath = Paths.get("../data/contacts.txt");
 
         List<Contact> contactList = new ArrayList<Contact>();
-        Contact josh = new Contact("Josh","Allen", 716123222);
-//        contactList.add(josh);
-//        System.out.println(josh.getFirstName().toString());
-//        System.out.println(josh.getLastName());
-//        System.out.println(josh.getPhoneNumber());
+        Contact josh = new Contact("Josh","Allen", "716123222");
+        contactList.add(josh);
+        System.out.println(josh.getFirstName().toString());
+        System.out.println(josh.getLastName());
+        System.out.println(josh.getPhoneNumber());
+        Contact vonMiller = new Contact("Von","Miller","1231231313");
+        contactList.add(vonMiller);
+        System.out.println(contactList);
 //        String joshNameString = josh.getFirstName().toString();
 //        Files.write(filepath, joshNameString.getBytes());
 //        Files.write(filepath, contactList);
@@ -51,16 +54,19 @@ public class ContactTesting {
             switch(option){
                 case 1:
                     System.out.println("Enter First Name : ");
-                    String firstName = s.nextLine();
+                    String firstName = s1.nextLine();
                     System.out.println("Enter Last Name : ");
                     String lastName = s1.nextLine();
                     System.out.print("Enter phone number : ");
-                    int phoneNumber = s.nextInt();
+                    String phoneNumber = s1.nextLine();
 
                     contactList.add(new Contact(firstName,lastName,phoneNumber));
+                    System.out.println(contactList);
                     //write into text file
                     break;
                 case 2:
+                    System.out.println("Here is a list of contacts");
+
                     //read from text file
                    // System.out.println(); print out list of contact list
 
