@@ -33,6 +33,7 @@ public class ContactTesting {
 
         ArrayList<String> nameAndNumberList = new ArrayList<>();
         nameAndNumberList.add("First     | Last      | Phone");
+        nameAndNumberList.add("-----------------------------");
         for(int i=0; i<contactList.size();i++){
 //            List<String> firstNameList = Arrays.asList(contactList.get(i).getFirstName());
             nameAndNumberList.add(contactList.get(i).getFirstName()+"       | "+contactList.get(i).getLastName()+"      | "+contactList.get(i).getPhoneNumber());
@@ -45,8 +46,8 @@ public class ContactTesting {
         Scanner s1 = new Scanner(System.in);
         int option;
         do {
-            System.out.println("1. Add contact");
-            System.out.println("2. View List of Contacts");
+            System.out.println("1. View List of Contacts");
+            System.out.println("2. Add contact");
             System.out.println("3. Search contact by name");
             System.out.println("4. Delete a contact");
             System.out.println("5. Exit");
@@ -54,7 +55,7 @@ public class ContactTesting {
             option = s.nextInt();
 
             switch (option) {
-                case 1:
+                case 2:
                     System.out.println("Enter First Name : ");
                     String firstName = s1.nextLine();
                     System.out.println("Enter Last Name : ");
@@ -66,7 +67,6 @@ public class ContactTesting {
                     System.out.print(contactList.get(contactList.size()-1).getLastName()+" ");
                     System.out.println(" and your new contact phone is "+contactList.get(contactList.size()-1).getPhoneNumber());
                     nameAndNumberList.add(contactList.get(contactList.size()-1).getFirstName()+"       | "+contactList.get(contactList.size()-1).getLastName()+"      | "+contactList.get(contactList.size()-1).getPhoneNumber());
-                    System.out.println(nameAndNumberList);
                     System.out.println("would you like to return to main menu? enter y if yes, if not, program will end");
                     Files.write(filepath, nameAndNumberList);
                     String userInpu2 = s1.nextLine();
@@ -77,11 +77,16 @@ public class ContactTesting {
                     }
                     //write into text file
                     break;
-                case 2:
+                case 1:
                     System.out.println("Here is a list of contacts");
                     System.out.println("First  | Last  | Phone Number");
-                    for (int i = 0; i < contactList.size(); i++) {
-                        System.out.println("  " + contactList.get(i).getFirstName() + " | " + contactList.get(i).getLastName() + " |" + contactList.get(i).getPhoneNumber());
+//                    for (int i = 0; i < contactList.size(); i++) {
+//                        System.out.println("  " + contactList.get(i).getFirstName() + " | " + contactList.get(i).getLastName() + " |" + contactList.get(i).getPhoneNumber());
+//                    }
+                    Path contactNamePath = Paths.get("data","contacts.txt");
+                    List<String> contactList22 = Files.readAllLines(contactNamePath);
+                    for(int i = 2; i<contactList22.size();i++){
+                        System.out.println((i-1)+":"+contactList22.get(i));
                     }
                     System.out.println("would you like to return to the main menu? enter y if yes");
                     String userInput1 = s1.nextLine();
@@ -90,7 +95,7 @@ public class ContactTesting {
                     }
                     //read from text file
                     // System.out.println(); print out list of contact list
-
+                    break;
                 case 3:
                     //search contact by name
 

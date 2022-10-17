@@ -1,6 +1,6 @@
 First     | Last      | Phone
+-----------------------------
 Josh       | Allen      | 716123222
 Von       | Miller      | 1231231313
 Jordan       | Poyer      | 4677413
 Gabe       | Davis      | 95483498
-Darth       | vader      | 1231251233
