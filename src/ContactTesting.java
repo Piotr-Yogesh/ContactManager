@@ -31,16 +31,14 @@ public class ContactTesting {
 //        Contact mattMilano = new Contact("Matt", "Milano", "12134123");
 //        contactList.add(mattMilano);
 
-        ArrayList<String> firstNameList = new ArrayList<>();
+        ArrayList<String> nameAndNumberList = new ArrayList<>();
+        nameAndNumberList.add("First     | Last      | Phone");
         for(int i=0; i<contactList.size();i++){
 //            List<String> firstNameList = Arrays.asList(contactList.get(i).getFirstName());
-            firstNameList.add(contactList.get(i).getFirstName());
+            nameAndNumberList.add(contactList.get(i).getFirstName()+"       | "+contactList.get(i).getLastName()+"      | "+contactList.get(i).getPhoneNumber());
         }
-        System.out.println(firstNameList);
-//        Files.write(filepath,contactList);
-        //        String joshNameString = josh.getFirstName().toString();
-//        Files.write(filepath, joshNameString.getBytes());
-        Files.write(filepath, firstNameList);
+        System.out.println(nameAndNumberList);
+        Files.write(filepath, nameAndNumberList);
 
         //turn objects into strings, pass the strings into writing on the contacts text file
         Scanner s = new Scanner(System.in);
@@ -63,12 +61,14 @@ public class ContactTesting {
                     String lastName = s1.nextLine();
                     System.out.print("Enter phone number : ");
                     String phoneNumber = s1.nextLine();
-
                     contactList.add(new Contact(firstName, lastName, phoneNumber));
                     System.out.print("Your new contact name is "+contactList.get(contactList.size()-1).getFirstName()+" ");
                     System.out.print(contactList.get(contactList.size()-1).getLastName()+" ");
                     System.out.println(" and your new contact phone is "+contactList.get(contactList.size()-1).getPhoneNumber());
+                    nameAndNumberList.add(contactList.get(contactList.size()-1).getFirstName()+"       | "+contactList.get(contactList.size()-1).getLastName()+"      | "+contactList.get(contactList.size()-1).getPhoneNumber());
+                    System.out.println(nameAndNumberList);
                     System.out.println("would you like to return to main menu? enter y if yes, if not, program will end");
+                    Files.write(filepath, nameAndNumberList);
                     String userInpu2 = s1.nextLine();
                     if(userInpu2.contains("y")){
                     }else{
