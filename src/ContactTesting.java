@@ -67,8 +67,8 @@ public class ContactTesting {
                     System.out.print(contactList.get(contactList.size()-1).getLastName()+" ");
                     System.out.println(" and your new contact phone is "+contactList.get(contactList.size()-1).getPhoneNumber());
                     nameAndNumberList.add(contactList.get(contactList.size()-1).getFirstName()+"       | "+contactList.get(contactList.size()-1).getLastName()+"      | "+contactList.get(contactList.size()-1).getPhoneNumber());
-                    System.out.println("would you like to return to main menu? enter y if yes, if not, program will end");
                     Files.write(filepath, nameAndNumberList);
+                    System.out.println("would you like to return to main menu? enter y if yes, if not, program will end");
                     String userInpu2 = s1.nextLine();
                     if(userInpu2.contains("y")){
                     }else{
@@ -100,19 +100,28 @@ public class ContactTesting {
                     //search contact by name
 
                     List<String> contacts15 = Files.readAllLines(Paths.get("data", "contacts.txt"));
-                    List<String> newContactList5 = new ArrayList<>();
+//                    List<String> newContactList5 = new ArrayList<>();
                     System.out.println("enter a name to search for");
 
-                    String userInput59 = s1.nextLine();
+                    String userInputSearch = s1.nextLine();
+
 
                     for (String contact : contacts15) {
-                            if(contact.toLowerCase().contains(userInput59.toLowerCase())) {
+                            if(contact.toLowerCase().contains(userInputSearch.toLowerCase())) {
                                 System.out.printf("First  | Last  | Phone Number%n"+contact+"%n");
                             }
+//                                else if(!(contact.toLowerCase().contains(userInput59.toLowerCase()))){
+//                                    System.out.println("no such name found");
+//                                };
+                            }
 
-
+                    System.out.println("would you like to return to main menu? enter y if yes, if not, program will end");
+                    String userInput2 = s1.nextLine();
+                    if(userInput2.contains("y")){
+                    }else{
+                        option = 0;
+                        System.out.println("program has ended, goodbye");
                     }
-
                 case 4:
 //                    System.out.println("Would you like to delete a contact? enter y if yes");
 //                    System.out.println("Enter the name of the contact to delete: ");
@@ -120,6 +129,37 @@ public class ContactTesting {
 //                    System.out.println("Are you sure you want to delete this contact? enter y if yes");
 //                    System.out.println("contact deleted");
                     //show contact list again
+                    List<String> contactsRemove = Files.readAllLines(Paths.get("data", "contacts.txt"));
+//                    List<String> newContactList5 = new ArrayList<>();
+                    System.out.println(contactsRemove);
+                    System.out.println("Enter contact name to search:");
+                    String userInputSearchToRemove = s1.nextLine();
+                    for (String contact : contactsRemove) {
+                        if (contact.toLowerCase().contains(userInputSearchToRemove.toLowerCase())) {
+                            System.out.printf("First  | Last  | Phone Number%n" + contact + "%n");
+
+                            System.out.println("Is this a contact you want to delete?");
+                            String userInputRemove = s1.nextLine();
+
+                            if (userInputRemove.contains("y")){
+                                contactsRemove.remove(contact);
+                                System.out.println(contactsRemove);
+//                            System.out.printf("First  | Last  | Phone Number%n"+contact+"%n");
+                            }
+                        }
+
+
+                        }
+
+
+
+//                    System.out.println("would you like to return to main menu? enter y if yes, if not, program will end");
+//                    String userInput2 = s1.nextLine();
+//                    if(userInput2.contains("y")){
+//                    }else{
+//                        option = 0;
+//                        System.out.println("program has ended, goodbye");
+//                    }
                 case 5:
 //                    System.out.println("are you sure you want to exit? enter y if yes");
 //                    String userInput = s1.nextLine();
