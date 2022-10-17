@@ -8,18 +8,22 @@ import java.util.List;
 public class ContactList {
 
     public static void main(String[] args) throws IOException {
-        String filename = "contacts.tx";
-        String directory = "data";
-
-        Path dataDirectory = Paths.get(directory);
-        Path dataFile = Paths.get(filename);
-
-
-
-        List<String> contactList = Arrays.asList("John","Jacob","JingleHeinerSchmidt");
-        Path filepath = Paths.get(filename);
-        Files.write(filepath, contactList);
-
+//        String directory = "data";
+//        String filename = "contacts.txt";
+//
+//        Path dataDirectory = Paths.get(directory);
+//        Path dataFile = Paths.get(directory, filename);
+//        if (Files.notExists(dataDirectory)) {
+//            Files.createDirectories(dataDirectory);
+//        }
+//        if (! Files.exists(dataFile)) {
+//            Files.createFile(dataFile);
+//        }
+//
+//        List<String> contactList = Arrays.asList("John","Jacob","JingleHeinerSchmidt");
+//        Path filepath = Paths.get(filename);
+//        Files.write(filepath, contactList);
+//
 
 
     }
