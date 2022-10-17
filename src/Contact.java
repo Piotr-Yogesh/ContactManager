@@ -4,13 +4,13 @@ public class Contact {
 
     private String firstName;
     private String lastName;
-    private ArrayList<Integer> phoneNumber;
+    private String phoneNumber;
 
-    public Contact(String newFirstName,String newLastName, String newPhoneNumber){
-        this(newFirstName, newLastName, new ArrayList<Integer>());
-    }
+//    public Contact(String newFirstName,String newLastName, String newPhoneNumber){
+//        this(newFirstName, newLastName, new newPhoneNumber);
+//    }
 
-    public Contact(String newfirstName, String newlastName, ArrayList<Integer> newPhoneNumber){
+    public Contact(String newfirstName, String newlastName, String newPhoneNumber){
         this.firstName = newfirstName;
         this.lastName = newlastName;
         this.phoneNumber = newPhoneNumber;
@@ -23,13 +23,13 @@ public class Contact {
         return lastName;
     }
 
-    public ArrayList<Integer> getPhoneNumber(){
+    public String getPhoneNumber(){
         return phoneNumber;
     }
 
-    public  void addPhoneNumber(int phoNumber){
-        phoneNumber.add(phoNumber);
-    }
+//    public  void addPhoneNumber(int phoNumber){
+//        phoneNumber.add(phoNumber);
+//    }
 
     public String contactInfo(){
         return firstName + " " + lastName + "  " + phoneNumber;

@@ -26,15 +26,11 @@ public class ContactTesting {
         Path filepath = Paths.get("../data/contacts.txt");
 
         List<Contact> contactList = new ArrayList<Contact>();
-        Contact josh = new Contact("Josh","Allen", "716123222");
-        contactList.add(josh);
-        System.out.println(josh.getFirstName().toString());
-        System.out.println(josh.getLastName());
-        System.out.println(josh.getPhoneNumber());
-        Contact vonMiller = new Contact("Von","Miller","1231231313");
+        Contact josh = new Contact("Josh", "Allen", "716123222");
+        contactList.add(josh);;
+        Contact vonMiller = new Contact("Von", "Miller", "1231231313");
         contactList.add(vonMiller);
-        System.out.println(contactList);
-//        String joshNameString = josh.getFirstName().toString();
+        //        String joshNameString = josh.getFirstName().toString();
 //        Files.write(filepath, joshNameString.getBytes());
 //        Files.write(filepath, contactList);
 
@@ -42,7 +38,7 @@ public class ContactTesting {
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
         int option;
-        do{
+        do {
             System.out.println("1. Add contact");
             System.out.println("2. View List of Contacts");
             System.out.println("3. Search contact by name");
@@ -51,7 +47,7 @@ public class ContactTesting {
             System.out.print("Choose option to proceed : ");
             option = s.nextInt();
 
-            switch(option){
+            switch (option) {
                 case 1:
                     System.out.println("Enter First Name : ");
                     String firstName = s1.nextLine();
@@ -60,38 +56,54 @@ public class ContactTesting {
                     System.out.print("Enter phone number : ");
                     String phoneNumber = s1.nextLine();
 
-                    contactList.add(new Contact(firstName,lastName,phoneNumber));
-                    System.out.println(contactList);
+                    contactList.add(new Contact(firstName, lastName, phoneNumber));
+                    System.out.print("Your new contact name is "+contactList.get(contactList.size()-1).getFirstName()+" ");
+                    System.out.print(contactList.get(contactList.size()-1).getLastName()+" ");
+                    System.out.println(" and your new contact phone is "+contactList.get(contactList.size()-1).getPhoneNumber());
+                    System.out.println("would you like to return to main menu? enter y if yes, if not, program will end");
+                    String userInpu2 = s1.nextLine();
+                    if(userInpu2.contains("y")){
+                    }else{
+                        option = 0;
+                        System.out.println("program has ended, goodbye");
+                    }
                     //write into text file
                     break;
                 case 2:
                     System.out.println("Here is a list of contacts");
-
+                    System.out.println("First  | Last  | Phone Number");
+                    for (int i = 0; i < contactList.size(); i++) {
+                        System.out.println("  " + contactList.get(i).getFirstName() + " | " + contactList.get(i).getLastName() + " |" + contactList.get(i).getPhoneNumber());
+                    }
+                    System.out.println("would you like to return to the main menu? enter y if yes");
+                    String userInput1 = s1.nextLine();
+                    if(userInput1.contains("y")){
+                        System.out.println("okey dokey");
+                    }
                     //read from text file
-                   // System.out.println(); print out list of contact list
+                    // System.out.println(); print out list of contact list
 
                 case 3:
                     //search contact by name
 
                 case 4:
-                    System.out.println("Would you like to delete a contact? enter y if yes");
-                    System.out.println("Enter the name of the contact to delete: ");
-                    //search for contact from case 3
-                    System.out.println("Are you sure you want to delete this contact? enter y if yes");
-                    System.out.println("contact deleted");
+//                    System.out.println("Would you like to delete a contact? enter y if yes");
+//                    System.out.println("Enter the name of the contact to delete: ");
+//                    //search for contact from case 3
+//                    System.out.println("Are you sure you want to delete this contact? enter y if yes");
+//                    System.out.println("contact deleted");
                     //show contact list again
                 case 5:
-                    System.out.println("are you sure you want to exit? enter y if yes");
-                    String userInput = s1.nextLine();
-                    if (userInput.contains("y")){
-                        option = 0;
-                        System.out.println("program has ended, have a nice day!!");
-                    }
-
+//                    System.out.println("are you sure you want to exit? enter y if yes");
+//                    String userInput = s1.nextLine();
+//                    if (userInput.contains("y")) {
+//                        option = 0;
+//                        System.out.println("program has ended, have a nice day!!");
+//                    }
 
 
             }
-        }while(option != 0);
+        } while (option != 0);
         System.out.println(contactList);
     }
 }
