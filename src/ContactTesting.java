@@ -6,33 +6,41 @@ import java.util.*;
 
 public class ContactTesting {
     public static void main(String[] args) throws IOException {
-        //        String directory = "data";
-//        String filename = "contacts.txt";
-//
-//        Path dataDirectory = Paths.get(directory);
-//        Path dataFile = Paths.get(directory, filename);
-//        if (Files.notExists(dataDirectory)) {
-//            Files.createDirectories(dataDirectory);
-//        }
-//        if (! Files.exists(dataFile)) {
-//            Files.createFile(dataFile);
-//        }
-//
-//        List<String> contactList = Arrays.asList("John","Jacob","JingleHeinerSchmidt");
-//        Path filepath = Paths.get(filename);
-//        Files.write(filepath, contactList);
-//
+        String directory = "data";
+        String filename = "contacts.txt";
 
-        Path filepath = Paths.get("../data/contacts.txt");
+        Path dataDirectory = Paths.get(directory);
+        Path dataFile = Paths.get(directory, filename);
+        if (Files.notExists(dataDirectory)) {
+            Files.createDirectories(dataDirectory);
+        }
+        if (! Files.exists(dataFile)) {
+            Files.createFile(dataFile);
+        }
+        Path filepath = Paths.get("data","contacts.txt");
 
         List<Contact> contactList = new ArrayList<Contact>();
-        Contact josh = new Contact("Josh", "Allen", "716123222");
-        contactList.add(josh);;
+        Contact joshAllen = new Contact("Josh", "Allen", "716123222");
+        contactList.add(joshAllen);;
         Contact vonMiller = new Contact("Von", "Miller", "1231231313");
         contactList.add(vonMiller);
+        Contact jordanPoyer = new Contact("Jordan", "Poyer", "4677413");
+        contactList.add(jordanPoyer);
+        Contact gabeDavis = new Contact("Gabe", "Davis", "95483498");
+        contactList.add(gabeDavis);
+//        Contact mattMilano = new Contact("Matt", "Milano", "12134123");
+//        contactList.add(mattMilano);
+
+        ArrayList<String> firstNameList = new ArrayList<>();
+        for(int i=0; i<contactList.size();i++){
+//            List<String> firstNameList = Arrays.asList(contactList.get(i).getFirstName());
+            firstNameList.add(contactList.get(i).getFirstName());
+        }
+        System.out.println(firstNameList);
+//        Files.write(filepath,contactList);
         //        String joshNameString = josh.getFirstName().toString();
 //        Files.write(filepath, joshNameString.getBytes());
-//        Files.write(filepath, contactList);
+        Files.write(filepath, firstNameList);
 
         //turn objects into strings, pass the strings into writing on the contacts text file
         Scanner s = new Scanner(System.in);
