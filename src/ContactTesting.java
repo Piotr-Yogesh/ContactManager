@@ -80,7 +80,6 @@ public class ContactTesting {
                             keepAdding = false;
                         }
                     }while(keepAdding);
-                    System.out.println(contactList);
                         break;
                 case 1:
                     System.out.printf("Here is a list of contacts%n");
@@ -214,10 +213,8 @@ public class ContactTesting {
                     }while(keepDeleting);
                     break;
                 case 5:
+                    System.out.printf("%n%n%n2");
                     System.out.println("have a nice day!!");
-
-//                    nameAndNumberList.add("First     | Last      | Phone");
-//                    nameAndNumberList.add("-----------------------------");
                     Files.write(filepath, nameAndNumberList);
                     option = 0;
 
