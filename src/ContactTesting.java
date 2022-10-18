@@ -70,7 +70,13 @@ public class ContactTesting {
                         System.out.print("Your new contact name is " + contactList.get(contactList.size() - 1).getFirstName() + " ");
                         System.out.print(contactList.get(contactList.size() - 1).getLastName() + " ");
                         System.out.println(" the new contact phone number is " + contactList.get(contactList.size() - 1).getPhoneNumber());
-                        nameAndNumberList.add(contactList.get(contactList.size() - 1).getFirstName() + "       | " + contactList.get(contactList.size() - 1).getLastName() + "      | " + contactList.get(contactList.size() - 1).getPhoneNumber());
+                        System.out.println("Are you sure you want to add this contact? enter y if yes");
+                        String yesSir = s1.nextLine();
+                        if(yesSir.contains("y")) {
+                            nameAndNumberList.add(contactList.get(contactList.size() - 1).getFirstName() + "       | " + contactList.get(contactList.size() - 1).getLastName() + "      | " + contactList.get(contactList.size() - 1).getPhoneNumber());
+                        }else{
+                            System.out.println("you have chosen not to add that contact");
+                        }
                         System.out.println("Do you want to add another contact? Enter y to add another contact, enter anything else to return to the main menu");
 
                         String userInput2 = s1.nextLine();
@@ -88,16 +94,10 @@ public class ContactTesting {
                     for(int i =0;i<nameAndNumberList.size();i++) {
                         System.out.println((i+1)+". "+nameAndNumberList.get(i));
                     }
-//                    Path contactNamePath = Paths.get("data","contacts.txt");
-//                    List<String> contactList29 = Files.readAllLines(contactNamePath);
-//                    for(int i = 2; i<contactList29.size();i++){
-//                        System.out.println((i-1)+":"+contactList29.get(i));
-//                    }
-                    System.out.println("press enter to return to main menu");
+
+                    System.out.println("hit any key to return to the main menu");
                     String userInput1 = s1.nextLine();
                     if(userInput1.contains("")){
-                        System.out.printf("%nokey dokey%n");
-                        System.out.println(" ");
                     }
                     break;
                 case 3:
@@ -111,15 +111,7 @@ public class ContactTesting {
                                 System.out.printf("First  | Last  | Phone Number%n" + nameAndNumberList.get(i) + "%n");
                                 counter +=1;
                         }}
-//                        List<String> contacts15 = Files.readAllLines(Paths.get("data", "contacts.txt"));
 
-
-//                        for (String contact : contacts15) {
-//                            if (contact.toLowerCase().contains(userInputSearch.toLowerCase())) {
-//                                System.out.printf("First  | Last  | Phone Number%n" + contact + "%n");
-//                                counter +=1;
-//                            }
-//                        }
                         if(counter==0){
                             System.out.println("This contact does not exist");
                             System.out.println("");
@@ -151,23 +143,16 @@ public class ContactTesting {
                                     nameAndNumberList.remove(i);
                                     keepDeleting = true;
                                 }else{
+                                    System.out.printf("%n%nyou have chosen not to delete "+nameAndNumberList.get(i));
                                     keepDeleting = false;
                                 }
                                 counter +=1;
                                 System.out.println("");
                             }}
-//                        List<String> contacts15 = Files.readAllLines(Paths.get("data", "contacts.txt"));
 
 
-//                        for (String contact : contacts15) {
-//                            if (contact.toLowerCase().contains(userInputSearch.toLowerCase())) {
-//                                System.out.printf("First  | Last  | Phone Number%n" + contact + "%n");
-//                                counter +=1;
-//                            }
-//                        }
                         if(counter==0){
                             System.out.println("This contact does not exist");
-//                            System.out.println("would you like to delete a contact, enter y if yes, otherwise enter another key to remove to main meny");
 
                         }
 
@@ -213,12 +198,10 @@ public class ContactTesting {
                     }while(keepDeleting);
                     break;
                 case 5:
-                    System.out.printf("%n%n%n2");
+                    System.out.printf("%n%n%n");
                     System.out.println("have a nice day!!");
                     Files.write(filepath, nameAndNumberList);
                     option = 0;
-
-
             }
         } while (option != 0);
 

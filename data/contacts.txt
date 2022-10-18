@@ -2,7 +2,6 @@ Josh       | Allen      | 716123222
 Gabe       | Davis      | 95483498
 darth       | maul      | 1232131
 joseph       | biden      | 819231
-james       | bond      | 007
 hello       | world      | 1234567890
 Jordan       | Poyer      | 12341235
 Matt       | Milano      | 123151233
