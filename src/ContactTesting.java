@@ -33,7 +33,7 @@ public class ContactTesting {
         for(int i=0; i<contactList.size();i++){
             nameAndNumberList.add(contactList.get(i).getFirstName()+"       | "+contactList.get(i).getLastName()+"      | "+contactList.get(i).getPhoneNumber());
         }
-        Files.write(filepath, nameAndNumberList);
+//        Files.write(filepath, nameAndNumberList);
 
         Scanner s = new Scanner(System.in);
         Scanner s1 = new Scanner(System.in);
@@ -63,7 +63,6 @@ public class ContactTesting {
                         System.out.print(contactList.get(contactList.size() - 1).getLastName() + " ");
                         System.out.println(" the new contact phone number is " + contactList.get(contactList.size() - 1).getPhoneNumber());
                         nameAndNumberList.add(contactList.get(contactList.size() - 1).getFirstName() + "       | " + contactList.get(contactList.size() - 1).getLastName() + "      | " + contactList.get(contactList.size() - 1).getPhoneNumber());
-                        Files.write(filepath, nameAndNumberList);
                         System.out.println("Do you want to add another contact? Enter yes to add another contact, enter anything else to return to the main menu");
                         String userInput2 = s1.nextLine();
                         if (userInput2.contains("yes")) {
@@ -118,27 +117,35 @@ public class ContactTesting {
                     }while(keepSearching);
                     break;
                 case 4:
-                    List<String> contactsRemove = Files.readAllLines(Paths.get("data", "contacts.txt"));
-                    System.out.println("You have chosen to delete a contact:");
-                    System.out.println("Enter name of contact you wish to delete:");
-                    String userInputSearchToRemove = s1.nextLine();
-                    for (int i=0;i< contactsRemove.size();i++) {
-                        if (contactsRemove.get(i).toLowerCase().contains(userInputSearchToRemove.toLowerCase())) {
-                            System.out.printf("First  | Last  | Phone Number%n" + contactsRemove.get(i) + "%n");
+                    boolean keepDeleting;
+                    do {
+                        List<String> contactsRemove = Files.readAllLines(Paths.get("data", "contacts.txt"));
+                        System.out.println("Enter name of contact you wish to delete:");
+                        String userInputSearchToRemove = s1.nextLine();
+                        for (int i = 0; i < contactsRemove.size(); i++) {
+                            if (contactsRemove.get(i).toLowerCase().contains(userInputSearchToRemove.toLowerCase())) {
+                                System.out.printf("First  | Last  | Phone Number%n" + contactsRemove.get(i) + "%n");
 
-                            System.out.println("Is this a contact you want to delete? enter y if yes");
-                            String userInputRemove = s1.nextLine();
-                            if (userInputRemove.contains("y")){
-                                contactsRemove.remove(i);
-                                System.out.println(contactsRemove);
-                                Files.write(filepath, contactsRemove);
+                                System.out.println("Is this a contact you want to delete? enter y if yes");
+                                String userInputRemove = s1.nextLine();
+                                if (userInputRemove.contains("y")) {
+                                    contactsRemove.remove(i);
+                                    Files.write(filepath, contactsRemove);
+                                }
                             }
-
                         }
+                        System.out.println("Do you wish to delete another contact? Enter y if yes, if not enter another key to return to main menu");
+                        String continuer = s1.nextLine();
+                        if(continuer.contains("y")){
+                            keepDeleting = true;
+                        }else{
+                            keepDeleting = false;
                         }
+                    }while(keepDeleting);
                     break;
                 case 5:
                     System.out.println("have a nice day!!");
+                    Files.write(filepath, nameAndNumberList);
                     option = 0;
 
 
